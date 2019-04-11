@@ -1,17 +1,23 @@
 import { CommandHelpFormatterDeps as BaseCommandHelpFormatterDeps, CommandHelpSchema as BaseCommandHelpSchema, CommandSchemaHelpFormatter as BaseCommandSchemaHelpFormatter, CommandStringHelpFormatter as BaseCommandStringHelpFormatter, NO_COLORS, NamespaceHelpFormatterDeps as BaseNamespaceHelpFormatterDeps, NamespaceSchemaHelpFormatter as BaseNamespaceSchemaHelpFormatter, NamespaceStringHelpFormatter as BaseNamespaceStringHelpFormatter, OptionGroup, formatOptionName, isOptionVisible } from '@ionic/cli-framework';
 import { filter } from '@ionic/utils-array';
+import chalk from 'chalk';
 
 import { CommandMetadata, CommandMetadataInput, CommandMetadataOption, HydratedCommandMetadata, ICommand, INamespace } from '../definitions';
 
 import { COLORS } from './color';
 import { GLOBAL_OPTIONS } from './config';
 
-const IONIC_LOGO = String.raw`
-   _             _
-  (_) ___  _ __ (_) ___
-  | |/ _ \| '_ \| |/ __|
-  | | (_) | | | | | (__
-  |_|\___/|_| |_|_|\___|`;
+const logoColor = chalk.bgRgb(0x40, 0x87, 0xFF).white.bold;
+
+// tslint:disable:no-trailing-whitespace
+const IONIC_LOGO = logoColor(String.raw`
+   _             _        
+  (_) ___  _ __ (_) ___   
+  | |/ _ \| '_ \| |/ __|  
+  | | (_) | | | | | (__   
+  |_|\___/|_| |_|_|\___|  
+                          `).split('\n').join('\n  ');
+// tslint:enable:no-trailing-whitespace
 
 export interface NamespaceHelpFormatterDeps extends BaseNamespaceHelpFormatterDeps<ICommand, INamespace, CommandMetadata, CommandMetadataInput, CommandMetadataOption> {
   readonly inProject: boolean;
@@ -35,7 +41,7 @@ export class NamespaceStringHelpFormatter extends BaseNamespaceStringHelpFormatt
   }
 
   async formatIonicHeader(): Promise<string> {
-    return IONIC_LOGO + `  CLI ${this.version}\n\n`;
+    return `\n${IONIC_LOGO}  CLI ${this.version}\n\n`;
   }
 
   async getGlobalOptions(): Promise<string[]> {

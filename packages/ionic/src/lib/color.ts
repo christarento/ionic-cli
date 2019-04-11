@@ -3,7 +3,7 @@ import chalk from 'chalk';
 
 export const strong: ColorFunction = chalk.bold;
 export const weak: ColorFunction = chalk.dim;
-export const input: ColorFunction = chalk.green;
+export const input: ColorFunction = chalk.bold.cyan;
 export const ancillary: ColorFunction = chalk.cyan;
 export const success: ColorFunction = chalk.green;
 export const failure: ColorFunction = chalk.red;

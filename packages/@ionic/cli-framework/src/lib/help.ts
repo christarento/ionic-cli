@@ -46,21 +46,21 @@ const OPTION_DECORATIONS: Decoration<OptionGroup>[] = [
   [OptionGroup.Beta, chalk.red.bold('(beta)')],
   [OptionGroup.Deprecated, chalk.yellow.bold('(deprecated)')],
   [OptionGroup.Experimental, chalk.red.bold('(experimental)')],
-  [OptionGroup.Paid, chalk.blue.bold('(paid)')],
+  [OptionGroup.Paid, chalk.green.bold('(paid)')],
 ];
 
 const COMMAND_DECORATIONS: Decoration<CommandGroup>[] = [
   [CommandGroup.Beta, chalk.red.bold('(beta)')],
   [CommandGroup.Deprecated, chalk.yellow.bold('(deprecated)')],
   [CommandGroup.Experimental, chalk.red.bold('(experimental)')],
-  [CommandGroup.Paid, chalk.blue.bold('(paid)')],
+  [CommandGroup.Paid, chalk.green.bold('(paid)')],
 ];
 
 const NAMESPACE_DECORATIONS: Decoration<NamespaceGroup>[] = [
   [NamespaceGroup.Beta, chalk.red.bold('(beta)')],
   [NamespaceGroup.Deprecated, chalk.yellow.bold('(deprecated)')],
   [NamespaceGroup.Experimental, chalk.red.bold('(experimental)')],
-  [NamespaceGroup.Paid, chalk.blue.bold('(paid)')],
+  [NamespaceGroup.Paid, chalk.green.bold('(paid)')],
 ];
 
 function formatGroupDecorations<T extends string>(decorations: Decoration<T>[], groups?: string[]): string {
